@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div">
+        <h1>Attack Demo</h1>
+        <button id="play-btn">Play</button>
+        <div id="game-container" style="max-width: 200px;">
+            <div id="battlefield" style="display: flex; justify-content: space-around;">
+                <div id="player-container">
+                    <div id="player-letter"></div>
+                    <div id="player-health"></div>
+                </div>
+                <div id="projectile-container"></div>
+                <div id="enemy-container">
+                    <div id="enemy-letter"></div>
+                    <div id="enemy-health"></div>
+                </div>  
+            </div>
+            <div id="actions">
+                <button id="attack-btn" style="display: none;">Attack</button>
+                <button id="rest-btn" style="display: none;">Rest</button>
+            </div>
+        </div>
+    </div>
+    <div id="log" style="height: 20%; overflow-y: scroll;"></div>
+    <script type="module" src="dist/game.js"></script>
+  </body>
+</html>
