@@ -37,8 +37,9 @@ async function initialiseGame(gameState: GameState){
     playBtn.addEventListener('click', () => {
         const gameContainer = document.getElementById('game-container') as HTMLDivElement;
         playBtn.style.display = 'none';
-        gameContainer.style.display = 'block';
+        gameContainer.style.display = 'flex';
         attackBtn.style.display = 'block';
+        restBtn.style.display = 'block';
 
         initialiseFight();
     });
@@ -51,6 +52,7 @@ async function initialiseGame(gameState: GameState){
         if (!isEnemyAlive) {
             log(`${enemy.letter} has been defeated!`);
             player.gainExp(enemy.totalHealth);
+            updateExpBar(player.exp);
             await wait(1000);
             initialiseFight();
             return;
@@ -69,12 +71,14 @@ async function initialiseGame(gameState: GameState){
     });
 
     restBtn.addEventListener('click', () => {
-        rest()
+        rest();
     });
 }
 
 function initialiseFight() {
     enemy = Player.spawn(gameState.enemy);
+
+    updateExpBar(player.exp);
     
     const playerLetter = document.getElementById('player-letter') as HTMLSpanElement;
     const enemyLetter = document.getElementById('enemy-letter') as HTMLSpanElement;
@@ -92,6 +96,14 @@ function updateHealthBar(element: string, player: Player): void {
   const healthBar = document.getElementById(element) as HTMLProgressElement;
   if (healthBar) {
     healthBar.textContent = `${player.currentHealth} / ${player.totalHealth}`;
+  }
+}
+
+function updateExpBar(exp: number): void {
+  const expBar = document.getElementById('exp-bar') as HTMLProgressElement;
+  if (expBar) {
+    expBar.textContent = `Exp: ${exp}`;
+    expBar.value = exp;
   }
 }
 

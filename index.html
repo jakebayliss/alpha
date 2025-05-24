@@ -3,26 +3,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Web Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
     <div">
         <h1>Attack Demo</h1>
-        <button id="play-btn">Play</button>
-        <div id="game-container" style="max-width: 200px;">
-            <div id="battlefield" style="display: flex; justify-content: space-around;">
-                <div id="player-container">
+        <button id="play-btn">Fight</button>
+        <div id="game-container" style="max-width: 200px; display: flex; align-items: center; flex-direction: column; gap: 20px;">
+            <div id="battlefield" style="display: flex; gap: 20px;">
+                <div id="player-container" class="player-container">
                     <div id="player-letter"></div>
                     <div id="player-health"></div>
+                    <div id="exp-bar"></div>
                 </div>
                 <div id="projectile-container"></div>
-                <div id="enemy-container">
+                <div id="enemy-container" class="player-container">
                     <div id="enemy-letter"></div>
                     <div id="enemy-health"></div>
                 </div>  
             </div>
             <div id="actions">
-                <button id="attack-btn" style="display: none;">Attack</button>
+                <button id="attack-btn" style="display: none; margin: 5px;">Attack</button>
                 <button id="rest-btn" style="display: none;">Rest</button>
             </div>
         </div>
