@@ -1,34 +1,77 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
-    <link rel="stylesheet" href="src/styles.css">
+    <title>Battle Arena</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/character.css">
+    <link rel="stylesheet" href="src/styles/buttons.css">
 </head>
 <body>
-    <div">
-        <h1>Attack Demo</h1>
-        <button id="play-btn">Fight</button>
-        <div id="game-container" style="max-width: 200px; display: flex; align-items: center; flex-direction: column; gap: 20px;">
-            <div id="battlefield" style="display: flex; gap: 20px;">
-                <div id="player-container" class="player-container">
-                    <div id="player-letter"></div>
-                    <div id="player-health"></div>
-                    <div id="exp-bar"></div>
+    <div class="game-wrapper">
+        <h1>Battle Arena</h1>
+        <div id="username-form" style="display: none;">
+            <h2>Enter Your Username</h2>
+            <input type="text" id="username-input" placeholder="Enter username">
+            <button id="start-game-btn">Start Game</button>
+        </div>
+        <div id="battlefield">
+            <div class="character-container" id="player-container">
+                <div class="character-name">Player</div>
+                
+                <div class="health-bar-container">
+                    <span class="bar-emoji">❤️</span>
+                    <div class="health-bar-max">
+                        <div class="health-bar" id="player-health-bar">
+                            <p id="player-health"></p>
+                        </div>
+                    </div>
                 </div>
-                <div id="projectile-container"></div>
-                <div id="enemy-container" class="player-container">
-                    <div id="enemy-letter"></div>
-                    <div id="enemy-health"></div>
-                </div>  
+                <div class="exp-display">
+                    <span class="bar-emoji">⭐</span>
+                    <span id="exp-bar"></span>
+                </div>
+                <div class="stats-container">
+                    <div class="stats-title">Stats</div>
+                    <div class="stat-item">
+                        <span>Level:</span>
+                        <span id="player-level">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Attack:</span>
+                        <span id="player-attack">10</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Defense:</span>
+                        <span id="player-defense">5</span>
+                    </div>
+                </div>
             </div>
-            <div id="actions">
-                <button id="attack-btn" style="display: none; margin: 5px;">Attack</button>
-                <button id="rest-btn" style="display: none;">Rest</button>
+
+            <div id="projectile-container"></div>
+
+            <div class="character-container" id="enemy-container">
+                <div class="character-name">Enemy</div>
+                <div class="health-bar-container">
+                    <div class="health-bar-max">
+                        <div class="enemy-health-bar" id="enemy-health-bar">
+                            <p id="enemy-health"></p>
+                        </div>
+                    </div>
+                    <span class="bar-emoji">❤️</span>
+                </div>
             </div>
         </div>
+
+        <div id="actions">
+            <button id="play-btn">Start Battle</button>
+            <button id="attack-btn" style="display: none;">Attack</button>
+            <button id="rest-btn" style="display: none;">Rest</button>
+        </div>
+
+        <div id="log"></div>
     </div>
-    <div id="log" style="height: 20%; overflow-y: scroll;"></div>
     <script type="module" src="dist/game.js"></script>
-  </body>
+</body>
 </html>
